@@ -1,0 +1,36 @@
+# Build
+bin/
+obj/
+out/
+artifacts/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio files
+.vs/
+*.sln.ide
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET logs
+*.log
+
+# EF Core Migrations
+Migrations/*.Designer.cs
+Migrations/*Snapshot.cs
+
+# Secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Node (caso tenha frontend integrado)
+node_modules/
+dist/
