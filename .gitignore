@@ -32,6 +32,3 @@ appsettins.json
 appsettings.Local.json
 secrets.json
 
-# Node (caso tenha frontend integrado)
-node_modules/
-dist/
