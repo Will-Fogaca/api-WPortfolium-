@@ -28,7 +28,7 @@ public class UserController : ControllerBase
     }
     
     [HttpPost]
-    public IActionResult InsertUser([FromBody] UserDto.CreateUserDTO userDto)
+    public IActionResult InsertUser([FromBody] CreateUserDTO userDto)
     {
         var newUser = _userService.CreateUser(userDto);
         return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, newUser);
@@ -36,7 +36,7 @@ public class UserController : ControllerBase
 
 
     [HttpPut("{id}")]
-    public IActionResult UpdateUser(Guid id, [FromBody] UserDto.UpdateUserDTO userDto)
+    public IActionResult UpdateUser(Guid id, [FromBody] UpdateUserDTO userDto)
     {
         try
         {

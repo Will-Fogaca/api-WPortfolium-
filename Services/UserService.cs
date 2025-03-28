@@ -16,13 +16,13 @@ public class UserService : IUserService
     }
     
 
-    public UserDto.UserDTO? GetUserById(Guid id)
+    public UserDTO? GetUserById(Guid id)
     {
         var user = _userRepository.GetUserById(id);
-        return user == null ? null : new UserDto.UserDTO(user.Id, user.Name, user.Email);
+        return user == null ? null : new UserDTO(user.Id, user.Name, user.Email);
     }
 
-    public UserDto.UserDTO CreateUser(UserDto.CreateUserDTO userDto)
+    public UserDTO CreateUser(CreateUserDTO userDto)
     {
         var passwordHasher = new PasswordHasher<UserEntity>();
 
@@ -37,12 +37,12 @@ public class UserService : IUserService
 
         _userRepository.InsertUser(newUser);
 
-        return new UserDto.UserDTO(newUser.Id, newUser.Name, newUser.Email);
+        return new UserDTO(newUser.Id, newUser.Name, newUser.Email);
     }
 
 
 
-    public void UpdateUser(Guid id, UserDto.UpdateUserDTO userDto)
+    public void UpdateUser(Guid id, UpdateUserDTO userDto)
     {
         var user = _userRepository.GetUserById(id);
         if (user == null)
