@@ -28,6 +28,7 @@ Migrations/*Snapshot.cs
 
 # Secrets
 appsettings.Development.json
+appsettins.json
 appsettings.Local.json
 secrets.json
 
