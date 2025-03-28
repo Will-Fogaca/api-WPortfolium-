@@ -2,6 +2,9 @@
 using WillPortfolio_Api.Domain.Entities;
 using WillPortfolio_Api.Repositories.Interfaces;
 using WillPortfolio_Api.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
+
+
 
 public class UserService : IUserService
 {
@@ -21,16 +24,22 @@ public class UserService : IUserService
 
     public UserDto.UserDTO CreateUser(UserDto.CreateUserDTO userDto)
     {
+        var passwordHasher = new PasswordHasher<UserEntity>();
+
         var newUser = new UserEntity
         {
             Id = Guid.NewGuid(),
             Name = userDto.Name,
             Email = userDto.Email,
-            Password = userDto.Password,
         };
+
+        newUser.Password = passwordHasher.HashPassword(newUser, userDto.Password);
+
         _userRepository.InsertUser(newUser);
+
         return new UserDto.UserDTO(newUser.Id, newUser.Name, newUser.Email);
     }
+
 
 
     public void UpdateUser(Guid id, UserDto.UpdateUserDTO userDto)

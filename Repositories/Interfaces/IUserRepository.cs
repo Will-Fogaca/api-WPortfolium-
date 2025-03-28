@@ -8,4 +8,8 @@ public interface IUserRepository
     void InsertUser(UserEntity user);
     void UpdateUser(UserEntity user);
     bool DeleteUser(Guid id);
+    
+    //Autentication 
+    UserEntity? GetByEmail(string email);
+    
 }
